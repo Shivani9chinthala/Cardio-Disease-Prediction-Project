@@ -119,3 +119,12 @@ Example result:
 ## 📝 Conclusion
 
 The project demonstrates that machine learning models can effectively predict cardiovascular risk using basic health metrics. Logistic Regression and Random Forest achieve the best performance, making them suitable for early risk detection systems in healthcare applications.
+---
+
+## 📬 Contact
+
+If you have any questions or want to collaborate, feel free to reach out:
+
+📧 Email: **[chinthala.shivani0@gmail.com)**
+
+I'm happy to help!

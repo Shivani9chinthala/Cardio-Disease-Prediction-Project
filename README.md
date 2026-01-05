@@ -7,6 +7,8 @@ This project includes full **data preprocessing**, **EDA**, **model training**, 
 ## 📊 Project Overview
 Cardiovascular diseases are one of the leading causes of death globally.  
 Using patient data such as age, blood pressure, cholesterol levels, BMI, and lifestyle factors, this project builds ML models to predict whether a patient has a high risk of cardiovascular disease.
+This project was further enhanced by handling class imbalance, performing hyperparameter optimization, and introducing advanced ensemble models. Model selection was based on ROC-AUC rather than accuracy to ensure better medical relevance.
+
 
 This repository includes:
 - Complete **EDA with visualizations**
@@ -72,13 +74,27 @@ Visualizations help identify patterns indicating cardiovascular risk.
 
 ---
 
+## 🔧 Model Optimization
+To improve model performance and address class imbalance:
+
+- Applied `class_weight='balanced'` to Logistic Regression and Random Forest
+- Performed hyperparameter tuning using:
+  - GridSearchCV (Logistic Regression)
+  - RandomizedSearchCV / GridSearchCV (Random Forest)
+- Used **ROC-AUC** as the primary evaluation metric
+- Reduced false negatives, which is critical in medical prediction tasks
+
+----
+
 ## 🤖 Machine Learning Models
-Models built and evaluated:
+Models built, optimized, and evaluated:
 - Logistic Regression  
 - K-Nearest Neighbor  
 - Calibrated Linear SVM  
 - Decision Tree  
-- Random Forest  
+- Random Forest
+- Gradient Boosting Classifier (Final Model)
+
 
 **Evaluation Metrics:**
 - Accuracy  
@@ -89,17 +105,19 @@ Models built and evaluated:
 
 ---
 
-## 🏆 Model Performance (AUC Scores)
+## 🏆 Model Performance (ROC-AUC Scores)
 
-| Model | AUC Score |
-|-------|----------|
-| **Logistic Regression** | **0.778** |
-| Random Forest | 0.771 |
-| Support Vector Machine | 0.703 |
-| K-Nearest Neighbor | 0.686 |
-| Decision Tree | 0.630 |
+| Model | ROC-AUC |
+|-----|--------|
+| Gradient Boosting (Final Model) | ~0.79–0.80 |
+| Logistic Regression (Optimized) | ~0.78 |
+| Random Forest (Optimized) | ~0.77 |
+| Support Vector Machine | ~0.70 |
+| K-Nearest Neighbor | ~0.68 |
+| Decision Tree | ~0.63 |
 
-Logistic Regression performs best on this dataset, closely followed by Random Forest.
+Gradient Boosting achieved the best performance after optimization and was selected as the final model.
+
 
 ---
 
@@ -116,9 +134,24 @@ Example result:
 
 ---
 
+## 🔍 Model Explainability (SHAP)
+To improve transparency and trust in predictions, SHAP (SHapley Additive exPlanations) was used to explain the final Gradient Boosting model.
+
+SHAP analysis revealed that the most influential features were:
+- Age
+- Systolic blood pressure (ap_hi)
+- BMI
+- Cholesterol level
+
+This helps understand how individual features contribute to cardiovascular disease predictions.
+
+---
+
 ## 📝 Conclusion
 
-The project demonstrates that machine learning models can effectively predict cardiovascular risk using basic health metrics. Logistic Regression and Random Forest achieve the best performance, making them suitable for early risk detection systems in healthcare applications.
+This project demonstrates a complete end-to-end machine learning pipeline for cardiovascular disease prediction. By addressing class imbalance, optimizing models using hyperparameter tuning, and introducing Gradient Boosting, the model performance was significantly improved. SHAP explainability further enhanced interpretability, making the solution suitable for real-world healthcare decision support systems.
+
+
 ---
 
 ## 📬 Contact

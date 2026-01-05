@@ -123,14 +123,14 @@ Gradient Boosting achieved the best performance after optimization and was selec
 
 ## 📊 ROC Curve Comparison
 
-Each model's ROC curve is plotted in the notebook to visually compare performance.
+ROC curves were used to compare model performance based on the trade-off between true positive rate and false positive rate.
 
-Example result:
+The comparison shows that:
+- **Gradient Boosting** achieved the highest ROC curve and AUC score
+- **Logistic Regression (optimized)** and **Random Forest (optimized)** performed competitively
+- SVM, KNN, and Decision Tree showed lower discriminative ability
 
-- Logistic Regression → highest curve  
-- Random Forest → nearly equal  
-- SVM → moderate  
-- KNN & Decision Tree → lower  
+Model selection was based on **ROC-AUC**, which is more suitable for medical prediction tasks than accuracy.
 
 ---
 
